@@ -1,4 +1,4 @@
-package it.robertoamato.videoteca;
+package it.robertoamato.videoteca.model;
 
 import java.io.BufferedReader;
 import java.io.File;

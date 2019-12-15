@@ -1,4 +1,4 @@
-package it.robertoamato.videoteca;
+package it.robertoamato.videoteca.application;
 
 import java.awt.Choice;
 import java.io.File;
@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import javax.swing.ViewportLayout;
+
+import it.robertoamato.videoteca.model.Film;
+import it.robertoamato.videoteca.model.Videoteca;
 
 public class Application {
 	public static void main(String[] args){

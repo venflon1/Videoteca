@@ -10,8 +10,8 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import it.robertoamato.videoteca.Film;
-import it.robertoamato.videoteca.Videoteca;
+import it.robertoamato.videoteca.model.Film;
+import it.robertoamato.videoteca.model.Videoteca;
 
 public class VideotecaTest {
 	

@@ -1,4 +1,4 @@
-package it.robertoamato.videoteca;
+package it.robertoamato.videoteca.model;
 
 public class Film {
 	private String nome;
