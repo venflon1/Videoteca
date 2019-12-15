@@ -6,9 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.function.Predicate;
 
 public class Videoteca {
@@ -25,7 +22,8 @@ public class Videoteca {
 	public void uploadFilm(Film film) {
 		if(this.films == null)
 			this.films = new ArrayList<>();
-		this.films.add(film);
+		if(!this.films.contains(film))
+			this.films.add(film);
 	}
 	
 	public void uploadFilm(Film... films) {
@@ -43,21 +41,20 @@ public class Videoteca {
 		BufferedReader inFile = new BufferedReader(new FileReader(file));
 		String films = "";
 		String line = "";
-
+		
 		while( (line  = inFile.readLine()) != null) {
 			films+= line;
-			System.out.println("aa");
 		}		
 		final String delimiter = ";;";
 		String[] film = films.split(delimiter);
 		
-		for(int i=0; i<films.length(); i++) {
+		for(int i=0; i<film.length; i++) {
 			String[] attributesFilm = film[i].split(" ");
 			String nome = attributesFilm[0];
 			String genere = attributesFilm[1];
 			int anno = Integer.parseInt(attributesFilm[2]);
-			
-			this.films.add(new Film(nome, genere, anno));
+			Film f = new Film(nome, genere, anno);
+			uploadFilm(f);
 		}
 	}
 
@@ -71,5 +68,4 @@ public class Videoteca {
 		
 		return ret;
 	}
-
 }

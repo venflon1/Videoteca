@@ -14,17 +14,17 @@ import it.robertoamato.videoteca.Film;
 import it.robertoamato.videoteca.Videoteca;
 
 public class VideotecaTest {
-	Videoteca videoteca = new Videoteca();
-	File file = new File("file");
 	
 	@Test
 	public void testExistFile() {
+		File file = new File("resource/file.txt");
 		assertNotNull(file);
 	}
 	
 	@Test
 	public void testUploadFilm() throws FileNotFoundException, IOException {
-		videoteca.uploadFilmByFile(file);
+		Videoteca videoteca = new Videoteca();
+		videoteca.uploadFilmByFile(new File("resource/file.txt"));
 		ArrayList<Film> films = videoteca.getFilms();
 		System.out.println(films);
 		assertNotNull(films);
