@@ -42,33 +42,48 @@ public class Application {
 							break;
 						}
 				case '2':{
-							ArrayList<Film> films = videoteca.getFilmByFilter(film -> film.getGenere().equalsIgnoreCase("azione"));
-							System.out.println("\n\tlist:");
-							films.forEach( (film) -> System.out.println("\t"+film.getNome()) );
+							if(videoteca.getFilms() != null) {
+								ArrayList<Film> films = videoteca.getFilmByFilter(film -> film.getGenere().equalsIgnoreCase("azione"));
+								System.out.println("\n\tlist:");
+								films.forEach( (film) -> System.out.println("\t"+film.getNome()) );
+							}
+							else
+								System.out.println("\tnothing film in videoteca");
 							break;
 						} 
 				case '3':{ 
-							ArrayList<Film> films = videoteca.getFilmByFilter(film -> film.getGenere().equalsIgnoreCase("horror"));
-							System.out.println("\n\tlist:");
-							films.forEach( (film) -> System.out.println("\t"+film.getNome()) );
+							if(videoteca.getFilms() != null) {
+								ArrayList<Film> films = videoteca.getFilmByFilter(film -> film.getGenere().equalsIgnoreCase("horror"));
+								System.out.println("\n\tlist:");
+								films.forEach( (film) -> System.out.println("\t"+film.getNome()) );
+							}
+							else
+								System.out.println("\tnothing film in videoteca");
 							break;
 						} 
 				case '4':{  break;} 
 				case '5':{  break;} 
 				case '6':{  break;} 
 				case '7':{ 
-							System.out.print("\tDigita nome film da cercare :\n\t>");
-							String nomeFilm = stdin.nextLine();
-							ArrayList<Film> films = videoteca.getFilmByFilter(film -> film.getNome().equalsIgnoreCase(nomeFilm));
-							System.out.println("\n\tlist:");
-							films.forEach( (film) -> System.out.println("\t"+film.getNome()) );
+							if(videoteca.getFilms() != null) {
+								System.out.print("\tDigita nome film da cercare :\n\t>");
+								String nomeFilm = stdin.nextLine();
+								ArrayList<Film> films = videoteca.getFilmByFilter(film -> film.getNome().equalsIgnoreCase(nomeFilm));
+								System.out.println("\n\tlist:");
+								films.forEach( (film) -> System.out.println("\t"+film.getNome()) );
+							}
+							else
+								System.out.println("\tnothing film in videoteca");
 							break;
 						}
 				case '8':{  break;} 
 				case '9':{  
-							ArrayList<Film> films = videoteca.getFilms();
-							System.out.println("\n\tlist:");
-							films.forEach( (film) -> System.out.println("\t"+film.getNome()) );
+							if(videoteca.getFilms() != null) {
+								ArrayList<Film> films = videoteca.getFilms();
+								films.forEach( (film) -> System.out.println("\t"+film.getNome()) );
+							}
+							else
+								System.out.println("\tnothing film in videoteca");
 							break;
 						} 
 				case 'E':{ System.out.println("Exit"); System.exit(0); }
@@ -77,9 +92,8 @@ public class Application {
 			System.out.println("\t----------------------------------------------------------------\n");
 		}
 				
-	
-	
 	}
+	
 	
 	private static String menu() {
 		String menu = "\t*********VIDEOTECA*********\n" + 
